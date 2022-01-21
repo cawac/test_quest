@@ -7,7 +7,7 @@
 
 
 #include <string>
-#include "abstract_Publication.h"
+#include "Publication.h"
 class Reader {
 public:
     void Find(std::string);
@@ -15,10 +15,10 @@ public:
     void Find_by_author(std::string);
     void Find_by_release_year(int);
     void Find_by_author_years(int);
-    void Request_Book(abstract_Publication*);
+    void Request_Book(Publication*);
     void Return_book(std::string);
 private:
-    std::vector<abstract_Publication*> ordered_Publications;
+    std::vector<Publication*> ordered_Publications;
 };
 
 

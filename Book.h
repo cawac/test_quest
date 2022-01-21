@@ -5,11 +5,19 @@
 #ifndef TEST_QUEST_BOOK_H
 #define TEST_QUEST_BOOK_H
 
-#include "abstract_Publication.h"
+#include "Publication.h"
 
-class Book:public abstract_Publication {
+class Book:public Publication {
 private:
-    std::map<std::string,std::pair<int,int>> authors;
+    std::map<std::string,std::pair<int,int>> authors;// автор, <год рождения, год смерти>
+public:
+    const std::map<std::string, std::pair<int, int>> &getAuthors() const {
+        return authors;
+    }
+
+    void setAuthors(const std::map<std::string, std::pair<int, int>> &authors) {
+        Book::authors = authors;
+    }
 };
 
 

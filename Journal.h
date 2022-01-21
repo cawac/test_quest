@@ -5,13 +5,29 @@
 #ifndef TEST_QUEST_JOURNAL_H
 #define TEST_QUEST_JOURNAL_H
 
-#include <map>
-#include "abstract_Publication.h"
+#include <set>
+#include "Publication.h"
 
-class Journal: public abstract_Publication {
+class Journal: public Publication {
 private:
     std::string month_of_release;
-    std::map<std::string,int> themes;
+    std::set<std::string> themes;
+public:
+    const std::string &getMonthOfRelease() const {
+        return month_of_release;
+    }
+
+    void setMonthOfRelease(const std::string &monthOfRelease) {
+        month_of_release = monthOfRelease;
+    }
+
+    const std::set<std::string> &getThemes() const {
+        return themes;
+    }
+
+    void setThemes(const std::set<std::string> &themes) {
+        Journal::themes = themes;
+    }
 };
 
 

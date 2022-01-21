@@ -5,10 +5,47 @@
 #ifndef TEST_QUEST_PUBLICATION_H
 #define TEST_QUEST_PUBLICATION_H
 
-#include "abstract_Publication.h"
+#include <string>
+#include <vector>
+#include <map>
+class Publication {
+private:
+    std::string heading;
+    std::string publishing_house;
+    std::string year_of_release;
+    std::string text;
+public:
+    const std::string &getHeading() const {
+        return heading;
+    }
 
-class Publication:public abstract_Publication {
+    void setHeading(const std::string &heading) {
+        Publication::heading = heading;
+    }
 
+    const std::string &getPublishingHouse() const {
+        return publishing_house;
+    }
+
+    void setPublishingHouse(const std::string &publishingHouse) {
+        publishing_house = publishingHouse;
+    }
+
+    const std::string &getYearOfRelease() const {
+        return year_of_release;
+    }
+
+    void setYearOfRelease(const std::string &yearOfRelease) {
+        year_of_release = yearOfRelease;
+    }
+
+    const std::string &getText() const {
+        return text;
+    }
+
+    void setText(const std::string &text) {
+        Publication::text = text;
+    }
 };
 
 

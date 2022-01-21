@@ -5,10 +5,27 @@
 #ifndef TEST_QUEST_SHELF_H
 #define TEST_QUEST_SHELF_H
 
-#include "abstract_Publication.h"
+#include "Publication.h"
 class Shelf {
 private:
-    std::vector<abstract_Publication*> content;
+    Publication* content;
+    size_t size;
+public:
+    Publication *getContent() const {
+        return content;
+    }
+
+    void setContent(Publication *content) {
+        Shelf::content = content;
+    }
+
+    size_t getSize() const {
+        return size;
+    }
+
+    void setSize(size_t size) {
+        Shelf::size = size;
+    }
 };
 
 

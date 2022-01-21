@@ -8,9 +8,9 @@
 
 class Librarian {
 public:
-    void Put_Book(abstract_Publication*);
-    void Give_Book(abstract_Publication*);
-    friend class Library;
+    void putBook(Publication*);
+    void giveBook(Publication*);
+    bool IsWorking();
 private:
     bool is_employed;
 };

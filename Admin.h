@@ -6,16 +6,26 @@
 #define TEST_QUEST_ADMIN_H
 
 
+#include "Library.h"
+
 class Admin {
 public:
-    void Create_wardrobe();
-    void Remove_Wardrobe();
-    void Make_themed_Wardrobe();
-    void Employ_Librarian();
-    void Dismiss_Librarian();
-    void Give_the_Book();
-private:
+    void createBookcase();
+    void removeBookcase();
+    void makeTethmedBookcase();
+    void employLibrarian();
+    void dismissLibrarian();
+    void giveBook();
+    const Library &getLibrary() const {
+        return library;
+    }
 
+    void setLibrary(const Library &library) {
+        Admin::library = library;
+    }
+
+private:
+    Library library;
 };
 
 
