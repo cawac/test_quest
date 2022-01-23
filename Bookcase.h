@@ -13,13 +13,6 @@ private:
     Shelf* shelves;
     std::string theme;
 public:
-    size_t getSize() const {
-        return size;
-    }
-
-    void setSize(size_t size) {
-        Bookcase::size = size;
-    }
 
     Shelf *getShelves() const {
         return shelves;
@@ -35,6 +28,13 @@ public:
 
     void setTheme(const std::string &theme) {
         Bookcase::theme = theme;
+    }
+    Bookcase(size_t size1){
+        size=size1;
+        shelves=new Shelf[size1];
+    }
+    Bookcase(){
+        Bookcase(2);
     }
 };
 

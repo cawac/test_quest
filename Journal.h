@@ -17,7 +17,7 @@ public:
         return month_of_release;
     }
 
-    void setMonthOfRelease(const std::string &monthOfRelease) {
+    void  setMonthOfRelease (const std::string &monthOfRelease)  {
         month_of_release = monthOfRelease;
     }
 
@@ -25,6 +25,13 @@ public:
         return themes;
     }
 
+    void addTheme(std::string them){
+        themes.insert(them);
+    }
+
+    bool findTheme(std::string them){
+        return themes.find(them)!=themes.end();
+    }
     void setThemes(const std::set<std::string> &themes) {
         Journal::themes = themes;
     }

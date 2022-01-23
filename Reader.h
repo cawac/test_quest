@@ -10,13 +10,13 @@
 #include "Publication.h"
 class Reader {
 public:
-    void Find(std::string);
-    void Find_by_theme(std::string);
-    void Find_by_author(std::string);
-    void Find_by_release_year(int);
-    void Find_by_author_years(int);
-    void Request_Book(Publication*);
-    void Return_book(std::string);
+    void findHeader(std::string);
+    void findTheme(std::string);
+    void findAuthor(std::string);
+    void findReleaseYear(int);
+    void findAuthorYears(int);
+    void requestBook(Publication*);
+    void returnBook(Publication*);
 private:
     std::vector<Publication*> ordered_Publications;
 };

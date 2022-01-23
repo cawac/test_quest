@@ -8,11 +8,14 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <set>
+#include <iostream>
+
 class Publication {
 private:
     std::string heading;
     std::string publishing_house;
-    std::string year_of_release;
+    int year_of_release;
     std::string text;
 public:
     const std::string &getHeading() const {
@@ -31,11 +34,11 @@ public:
         publishing_house = publishingHouse;
     }
 
-    const std::string &getYearOfRelease() const {
+    int getYearOfRelease() const {
         return year_of_release;
     }
 
-    void setYearOfRelease(const std::string &yearOfRelease) {
+    void setYearOfRelease(int yearOfRelease) {
         year_of_release = yearOfRelease;
     }
 

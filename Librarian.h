@@ -13,6 +13,7 @@ public:
     bool IsWorking();
 private:
     bool is_employed;
+    Library* library;
 };
 
 

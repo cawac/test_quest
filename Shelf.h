@@ -4,27 +4,41 @@
 
 #ifndef TEST_QUEST_SHELF_H
 #define TEST_QUEST_SHELF_H
-
+#include <deque>
 #include "Publication.h"
 class Shelf {
 private:
-    Publication* content;
+    std::deque<Publication*> content;
     size_t size;
 public:
-    Publication *getContent() const {
+    const std::deque<Publication *> &getContent() const {
         return content;
     }
 
-    void setContent(Publication *content) {
+    void setContent(const std::deque<Publication *> &content) {
         Shelf::content = content;
     }
-
-    size_t getSize() const {
-        return size;
+    Publication* getPublication(std::string s){
+        for (int i=0;i<content.size();i++){
+            if(content[i]->getHeading()==s) {
+                return content[i]; }
+        }
+        return nullptr;
+    }
+    bool IsEmpty(){
+        return content.empty();
     }
 
-    void setSize(size_t size) {
-        Shelf::size = size;
+    void addPublication(Publication* );
+
+    Shelf(size_t size1)
+    {
+        size=size1;
+        content.resize(size);
+    }
+
+    Shelf(){
+        Shelf(2);
     }
 };
 

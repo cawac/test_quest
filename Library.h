@@ -37,7 +37,7 @@ public:
         return bookcases;
     }
 
-    void setBookcases(const std::vector<Bookcase> &bookcases) {
+    void setBookcases( std::vector<Bookcase> &bookcases) {
         Library::bookcases = bookcases;
     }
 

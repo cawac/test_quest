@@ -7,25 +7,25 @@
 
 
 #include "Library.h"
-
+#include "Librarian.h"
 class Admin {
 public:
-    void createBookcase();
-    void removeBookcase();
-    void makeTethmedBookcase();
-    void employLibrarian();
-    void dismissLibrarian();
-    void giveBook();
-    const Library &getLibrary() const {
+    void createBookcase(Bookcase);
+    void removeBookcase(Bookcase);
+    void makeThemedBookcase(Bookcase);
+    void employLibrarian(Librarian);
+    void dismissLibrarian(Librarian);
+    void giveBook(Publication);
+    const Library *getLibrary() const {
         return library;
     }
 
-    void setLibrary(const Library &library) {
+    void setLibrary(Library *library) {
         Admin::library = library;
     }
 
 private:
-    Library library;
+    Library* library;
 };
 
 
