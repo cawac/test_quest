@@ -11,12 +11,12 @@
 #include <vector>
 #include <memory>
 int main(){
-    Book ba;
-    Journal ja;
-    Publication pa;
+    Book* ba;
+    Journal* ja;
+    Publication *pa;
     std::vector<Publication> shh;
 
-    Publication* shelfc;
+    Publication** shelfc;
     Shelf shelfa;
     Shelf *shelfb;
 
@@ -58,10 +58,14 @@ int main(){
     std::map<Reader,Publication*> map;
     Reader r;
     Journal jb;
-    shelfc=new Publication[3];
+    Publication b;
+    b=jb;
+    b.
+    shelfc=new Publication*[3];
     shelfc[0]=ba;
     shelfc[1]=ja;
     shelfc[2]=pa;
+    shelfc[1].
     shelfa.setContent(shelfc);
     Shelf asdf;
     Shelf* shelllll=new Shelf[3];

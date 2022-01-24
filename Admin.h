@@ -6,8 +6,7 @@
 #define TEST_QUEST_ADMIN_H
 
 
-#include "Library.h"
-#include "Librarian.h"
+#include "Reader.h"
 class Admin {
 public:
     void createBookcase(Bookcase);
@@ -15,7 +14,7 @@ public:
     void makeThemedBookcase(Bookcase);
     void employLibrarian(Librarian);
     void dismissLibrarian(Librarian);
-    void giveBook(Publication);
+    void addPublication(Publication);
     const Library *getLibrary() const {
         return library;
     }

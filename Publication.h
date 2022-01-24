@@ -49,6 +49,10 @@ public:
     void setText(const std::string &text) {
         Publication::text = text;
     }
+
+    Publication(Publication const &publication) {
+
+    }
 };
 
 

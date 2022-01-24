@@ -9,18 +9,20 @@
 
 class Book:public Publication {
 private:
-    std::map<std::string,std::pair<int,int>> authors;// автор, <год рождения, год смерти>
+    std::vector<std::pair<std::string,std::pair<int,int>>> authors;// автор, <год рождения, год смерти>
 public:
-    const std::map<std::string, std::pair<int, int>> &getAuthors() const {
+    const std::vector<std::pair<std::string, std::pair<int, int>>> &getAuthors() const {
         return authors;
     }
-    void addAuthor(std::string s, int dateofbirth,int dateofdeath){
-            authors[s].first=dateofbirth;
-            authors[s].second=dateofdeath;
-    }//сам не знаю зачем
-    void setAuthors(const std::map<std::string, std::pair<int, int>> &authors) {
+
+    void setAuthors(const std::vector<std::pair<std::string, std::pair<int, int>>> &authors) {
         Book::authors = authors;
     }
+//    void addAuthor(std::string s, int dateofbirth,int dateofdeath){
+//            authors[s].first=dateofbirth;
+//            authors[s].second=dateofdeath;
+//    }//сам не знаю зачем
+
 };
 
 

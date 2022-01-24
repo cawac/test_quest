@@ -8,38 +8,36 @@
 #include "Publication.h"
 class Shelf {
 private:
-    std::deque<Publication*> content;
+    std::vector<Publication > content;
     size_t size;
 public:
-    const std::deque<Publication *> &getContent() const {
+    const std::vector<Publication> &getContent() const {
         return content;
     }
 
-    void setContent(const std::deque<Publication *> &content) {
+    void setContent(const std::vector<Publication> &content) {
         Shelf::content = content;
     }
-    Publication* getPublication(std::string s){
-        for (int i=0;i<content.size();i++){
-            if(content[i]->getHeading()==s) {
-                return content[i]; }
-        }
-        return nullptr;
-    }
-    bool IsEmpty(){
-        return content.empty();
+
+    size_t getSize() const {
+        return size;
     }
 
-    void addPublication(Publication* );
-
-    Shelf(size_t size1)
-    {
-        size=size1;
-        content.resize(size);
+    void setSize(size_t size) {
+        Shelf::size = size;
     }
 
-    Shelf(){
-        Shelf(2);
-    }
+//    Publication getPublication(std::string s){
+//        for (int i=0;i<content.size();i++){
+//            if(content[i]->getHeading()==s) {
+//                return content[i]; }
+//        }
+//        return nullptr;
+//    }
+//    bool IsEmpty(){
+//        return content.empty();
+//    }
+
 };
 
 
