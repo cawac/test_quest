@@ -43,10 +43,6 @@ public:std::string &getHeader() override {
         this->text=text;
     }
 
-    std::map<std::string, std::pair<int, int>> &getAuthors() override {
-        std::map<std::string,std::pair<int,int>> empty;
-        return empty;
-    }
 
     void setAuthors(std::map<std::string, std::pair<int, int>> &authors) override {
 
@@ -60,7 +56,12 @@ public:std::string &getHeader() override {
         this->month_of_release=monthOfRelease;
     }
 
-    std::set<std::string> &getThemes() override {
+    std::map<std::string, std::pair<int, int>> &getAuthors() override {
+        std::map<std::string,std::pair<int,int>> empty;
+        return empty;
+    }
+
+    set<std::string> &getThemes() override {
         return themes;
     }
 

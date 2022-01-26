@@ -43,7 +43,7 @@ public:
         this->text=text;
     }
 
-    std::map<std::string, std::pair<int, int>> &getAuthors() override {
+    map<std::string, std::pair<int, int>> &getAuthors() override {
         return authors;
     }
 

@@ -26,11 +26,11 @@ public:
     virtual std::string &getText()=0;
     virtual void setText(std::string &text)=0;
 
-    virtual std::map<std::string, std::pair<int, int>> & getAuthors() const =0;
+    virtual std::map<std::string, std::pair<int, int>> & getAuthors() =0;
     virtual void setAuthors(std::map<std::string, std::pair<int, int>> &authors)=0;
     virtual std::string &getMonthOfRelease()=0;
     virtual void  setMonthOfRelease (std::string &monthOfRelease)=0;
-    virtual std::set<std::string> & getThemes() const =0;
+    virtual std::set<std::string> & getThemes() =0;
     virtual void setThemes(std::set<std::string> &themes)=0;
 };
 #endif //TEST_QUEST_ABSTRACT_PUBLICATION_H
