@@ -10,17 +10,27 @@
 class Bookcase {
 private:
     size_t size;
-    std::vector<Shelf> shelves;
+    size_t capacity;
+    Shelf* shelves;
     std::string theme;
 public:
 
-    const std::vector<Shelf> &getShelves() const {
-        return shelves;
-    }
 
-    void setShelves(const std::vector<Shelf> &shelves) {
-        Bookcase::shelves = shelves;
-    }
+    /*void addShelf(Shelf x){
+        if(capacity+1<=size){
+        Shelf* buffer=new Shelf[capacity+1];
+        for (int i = 0; i < capacity; ++i) {
+            buffer[i]=shelves[i];
+        }
+        buffer[capacity]=x;
+        capacity++;
+        delete shelves;
+        shelves=new Shelf[capacity];
+        for (int i = 0; i < capacity; ++i) {
+            shelves[i]=buffer[i];
+        }
+        }
+    }*/
 
     const std::string &getTheme() const {
         return theme;

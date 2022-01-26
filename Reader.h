@@ -18,17 +18,17 @@ private:
     std::string name;
     std::vector<Bookcase> bookcases;
     std::string address;
-    std::map<Reader,Publication> sessionLog;
+    std::map<Reader,abstract_Publication> sessionLog;
 public:
     const std::string &getName() const {
         return name;
     }
 
-    const std::map<Reader, Publication> &getSessionLog() const {
+    const std::map<Reader, abstract_Publication> &getSessionLog() const {
         return sessionLog;
     }
 
-    void setSessionLog(const std::map<Reader, Publication> &sessionLog) {
+    void setSessionLog(const std::map<Reader, abstract_Publication> &sessionLog) {
         Library::sessionLog = sessionLog;
     }
 
