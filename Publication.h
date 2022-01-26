@@ -5,54 +5,69 @@
 #ifndef TEST_QUEST_PUBLICATION_H
 #define TEST_QUEST_PUBLICATION_H
 
-#include <string>
-#include <vector>
-#include <map>
-#include <set>
-#include <iostream>
+#include "abstract_Publication.h"
 
-class Publication {
-private:
-    std::string heading;
-    std::string publishing_house;
-    int year_of_release;
-    std::string text;
+class Publication: public abstract_Publication{
 public:
-    const std::string &getHeading() const {
-        return heading;
+    std::string &getHeader() override {
+        return header;
     }
 
-    void setHeading(const std::string &heading) {
-        Publication::heading = heading;
+    void setHeader(std::string &header) override {
+         this->header=header;
     }
 
-    const std::string &getPublishingHouse() const {
+    std::string &getPublishingHouse() override {
         return publishing_house;
     }
 
-    void setPublishingHouse(const std::string &publishingHouse) {
-        publishing_house = publishingHouse;
+    void setPublishingHouse(std::string &publishingHouse) override {
+        this->publishing_house=publishingHouse;
     }
 
-    int getYearOfRelease() const {
+    int getYearOfRelease() override {
         return year_of_release;
     }
 
-    void setYearOfRelease(int yearOfRelease) {
-        year_of_release = yearOfRelease;
+    void setYearOfRelease(int yearOfRelease) override {
+        this->year_of_release=yearOfRelease;
     }
 
-    const std::string &getText() const {
+    std::string &getText() override {
         return text;
     }
 
-    void setText(const std::string &text) {
-        Publication::text = text;
+    void setText(std::string &text) override {
+        this->text=text;
     }
 
-    Publication(Publication const &publication) {
+    std::map<std::string, std::pair<int, int>> &getAuthors() override {
+        std::map<std::string,std::pair<int,int>> empty;
+        return empty;
+    }
+
+    void setAuthors(std::map<std::string, std::pair<int, int>> &authors) override {
 
     }
+
+    std::string &getMonthOfRelease() override {
+        std::string empty;
+        return empty;
+    }
+
+    void setMonthOfRelease(std::string &monthOfRelease) override {
+
+    }
+
+    std::set<std::string> &getThemes() override {
+        std::set<std::string> empty;
+        return empty;
+    }
+
+    void setThemes(std::set<std::string> &themes) override {
+
+    }
+
 };
 
 

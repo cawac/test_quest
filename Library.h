@@ -5,5 +5,4 @@
 #ifndef TEST_QUEST_LIBRARY_H
 #define TEST_QUEST_LIBRARY_H
 
-
 #endif //TEST_QUEST_LIBRARY_H

@@ -14,17 +14,18 @@ public:
     void makeThemedBookcase(Bookcase);
     void employLibrarian(Librarian);
     void dismissLibrarian(Librarian);
-    void addPublication(Publication);
-    const Library *getLibrary() const {
+    void addPublication(abstract_Publication*);
+
+    const std::shared_ptr<Library> &getLibrary() const {
         return library;
     }
 
-    void setLibrary(Library *library) {
+    void setLibrary(const std::shared_ptr<Library> &library) {
         Admin::library = library;
     }
 
 private:
-    Library* library;
+    std::shared_ptr<Library> library;
 };
 
 

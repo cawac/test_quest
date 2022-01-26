@@ -10,15 +10,15 @@
 class Bookcase {
 private:
     size_t size;
-    Shelf* shelves;
+    std::vector<Shelf> shelves;
     std::string theme;
 public:
 
-    Shelf *getShelves() const {
+    const std::vector<Shelf> &getShelves() const {
         return shelves;
     }
 
-    void setShelves(Shelf *shelves) {
+    void setShelves(const std::vector<Shelf> &shelves) {
         Bookcase::shelves = shelves;
     }
 
@@ -26,15 +26,16 @@ public:
         return theme;
     }
 
+    size_t getSize() const {
+        return size;
+    }
+
+    void setSize(size_t size) {
+        Bookcase::size = size;
+    }
+
     void setTheme(const std::string &theme) {
         Bookcase::theme = theme;
-    }
-    Bookcase(size_t size1){
-        size=size1;
-        shelves=new Shelf[size1];
-    }
-    Bookcase(){
-        Bookcase(2);
     }
 };
 

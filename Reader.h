@@ -5,15 +5,14 @@
 #ifndef TEST_QUEST_READER_H
 #define TEST_QUEST_READER_H
 
-
-#include "Publication.h"
-#include "Library.h"
-
-#include "Publication.h"
+#include "abstract_Publication.h"
 #include "Bookcase.h"
+#include <memory>
+#include <iostream>
 
-#include <string>
+using namespace std;
 typedef class Reader;
+
 class Library {
 private:
     std::string name;
@@ -55,45 +54,70 @@ public:
 };
 
 class Librarian {
-public:
-    void putBook(Publication);
-    void giveBook(Publication,Reader);
-    bool IsWorking();
 private:
-    Library* library;
+    std::shared_ptr<Library> library;
 public:
-    Library *getLibrary() const {
+    void putBook(abstract_Publication*);
+    void giveBook(abstract_Publication*,Reader);
+    bool IsWorking();
+
+    const std::shared_ptr<Library> &getLibrary() const {
         return library;
     }
 
-    void setLibrary(Library *library) {
+    void setLibrary(const std::shared_ptr<Library> &library) {
         Librarian::library = library;
     }
 };
 
 class Reader {
 public:
-    void findHeader(Library,std::string);
     void findTheme(Library,std::string);
+        /*{std::vector<abstract_Publication*> findPublications;
+        for (int i = 0; i < x.getBookcases().size(); ++i) {
+            for (int j = 0; j < x.getBookcases()[i].getShelves().size(); ++j) {
+                for (int k = 0; k < x.getBookcases()[i].getShelves()[j].getContent().size(); ++k) {
+                    if (x.getBookcases()[i].getShelves()[j].getContent()[k]->getThemes().find(b) !=
+                        x.getBookcases()[i].getShelves()[j].getContent()[k]->getThemes().end()) {
+                        std::cout << x.getBookcases()[i].getShelves()[j].getContent()[k]->getHeader() << " ";
+                        findPublications.push_back(x.getBookcases()[i].getShelves()[j].getContent()[k]);
+                    }
+                }
+            }
+        }
+        std::cout<<"\nвыберите публикацию по номеру или откажитесь нажав 0\n";
+        int a;
+        std::cin>>a;
+        if (a)
+            this->requestPublication(librarian ,findPublications[a-1]);
+    }*/
+
     void findAuthor(Library,std::string);
     void findYearOfRelease(Library,int);
     void findAuthorYears(Library,int,std::string);
+    /*Алгоритм всех поисков таков:
+         * 1)ищем публикацию
+         * 2)и выводим все найденные
+         * 3)пользаватель выбирает какая ему нужна публикация(идём в метод requestPublication), или отказывается(выходим)
+         * */
+    void requestPublication(Librarian,abstract_Publication*);
+    void returnPublication(Librarian,abstract_Publication*);
 
-//    void requestPublication(Library library,Publication* x){
-//        ordered_Publications.push_back(x);
-//    }
-    void returnPublication(Librarian librarian,Publication x){
-        for (int i = 0; i < ordered_publications.size(); ++i) {
-            if (ordered_publications[i]==x)
-            {
-                ordered_publications.erase(ordered_publications.begin()+i);
-                librarian.putBook(x);
-            }
-        }
+    const std::vector<abstract_Publication *> &getOrderedPublications() const {
+        return ordered_publications;
     }
-    void requestPublication(Librarian librarian,Publication x){
 
-        //        size++;
+    void setOrderedPublications(const std::vector<abstract_Publication *> &orderedPublications) {
+        ordered_publications = orderedPublications;
+    }
+
+    size_t getSize() const {
+        return size;
+    }
+
+    void setSize(size_t size) {
+        Reader::size = size;
+    }
 //        Publication* buffer;
 //        buffer=new Publication[size];
 //        for (int i = 0; i < size-1; ++i) {
@@ -106,10 +130,10 @@ public:
 //            ordered_publications[i]=buffer[i];
 //        }
 
-    }
+
 private:
-    std::vector<Publication> ordered_publications;
-    size_t size=0;
+    std::vector<abstract_Publication*> ordered_publications;
+    size_t size;
 };
 
 

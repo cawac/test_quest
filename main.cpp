@@ -7,21 +7,17 @@
 #include "Librarian.h"
 #include "Reader.h"
 #include "Shelf.h"
-#include <iostream>
-#include <vector>
-#include <memory>
 int main(){
     Book* ba;
     Journal* ja;
     Publication *pa;
     std::vector<Publication> shh;
 
-    Publication** shelfc;
     Shelf shelfa;
     Shelf *shelfb;
 
-    Bookcase bookcasea(2);
-    Bookcase bookcaseb(2);
+    Bookcase bookcasea;
+    Bookcase bookcaseb;
 
     std::vector<Bookcase> bookcases;
     Library library;
@@ -33,57 +29,29 @@ int main(){
     authors["Sasha"]=buffer;
     buffer.second=2100;
     authors["Masha"]=buffer;
-    ba.setAuthors(authors);
-    ba.setHeading("blabla");
-    ba.setPublishingHouse("BLABLA");
-    ba.setText("balblalblalblalbalslagdslkgfskjadlgjfaksdlfasd");
-    ba.setYearOfRelease(2022);
+    ba->setAuthors(authors);
+    ba->setHeader((string &)"blabla");
+    ba->setPublishingHouse((string &) "BLABLA");
+    ba->setText((string &) "balblalblalblalbalslagdslkgfskjadlgjfaksdlfasd");
+    ba->setYearOfRelease(2022);
 
-    ja.setMonthOfRelease("May");
+    ja->setMonthOfRelease((string &) "May");
     std::set<std::string> themes;
     themes.insert("what is set?");
     themes.insert("what is multiset?");
     themes.insert("what is map?");
     themes.insert("what is map?");
-    ja.setThemes(themes);
-    ja.setYearOfRelease(2022);
-    ja.setText("map is sandfjasdkflasdk...");
-    ja.setPublishingHouse("aversev");
-    ja.setHeading("с++ для чайников");
+    ja->setThemes(themes);
+    ja->setYearOfRelease(2022);
+    ja->setText((string &) "map is sandfjasdkflasdk...");
+    ja->setPublishingHouse((string &) "aversev");
+    ja->setHeader((string &) "с++ для чайников");
 
-    pa.setHeading("clean code");
-    pa.setPublishingHouse("BSUIR");
-    pa.setText("clean code main oasdfkl;asdk;flkas");
-    pa.setYearOfRelease(2022);
+    pa->setHeader((string &) "clean code");
+    pa->setPublishingHouse((string &) "BSUIR");
+    pa->setText((string &) "clean code main oasdfkl;asdk;flkas");
+    pa->setYearOfRelease(2022);
     std::map<Reader,Publication*> map;
-    Reader r;
-    Journal jb;
-    Publication b;
-    b=jb;
-    b.
-    shelfc=new Publication*[3];
-    shelfc[0]=ba;
-    shelfc[1]=ja;
-    shelfc[2]=pa;
-    shelfc[1].
-    shelfa.setContent(shelfc);
-    Shelf asdf;
-    Shelf* shelllll=new Shelf[3];
-    shelllll[0]=shelfa;
-    shelllll[1]=shelfa;
-    shelllll[2]=shelfa;
 
-//    shelfa.setContent(ja);
-    //bookcasea.setShelves(shelfa);
-    bookcaseb.setShelves(shelllll);
-
-    bookcases.push_back(bookcaseb);
-    bookcases.push_back(bookcaseb);
-    //bookcases.push_back(bookcaseb);
-    library.setBookcases(bookcases);
-//    std::cout<<library.getBookcases()[0].getShelves()[1].getContent()->getMonthOfRelease();
-//    std::cout<<library.getBookcases()[1].getShelves()[1].getContent()->getMonthOfRelease();
-//    std::cout<<library.getBookcases()[1].getShelves()[1].getContent()->getMonthOfRelease();
-    std::cout<<ja.getMonthOfRelease();
     return 0;
 }

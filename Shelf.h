@@ -4,18 +4,19 @@
 
 #ifndef TEST_QUEST_SHELF_H
 #define TEST_QUEST_SHELF_H
-#include <deque>
-#include "Publication.h"
+
+#include "abstract_Publication.h"
+
 class Shelf {
 private:
-    std::vector<Publication > content;
+    std::vector<abstract_Publication*> content;
     size_t size;
 public:
-    const std::vector<Publication> &getContent() const {
+    const std::vector<abstract_Publication*> &getContent() const {
         return content;
     }
 
-    void setContent(const std::vector<Publication> &content) {
+    void setContent(const std::vector<abstract_Publication*> &content) {
         Shelf::content = content;
     }
 
@@ -29,7 +30,7 @@ public:
 
 //    Publication getPublication(std::string s){
 //        for (int i=0;i<content.size();i++){
-//            if(content[i]->getHeading()==s) {
+//            if(content[i]->getHeader()==s) {
 //                return content[i]; }
 //        }
 //        return nullptr;
